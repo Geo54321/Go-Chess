@@ -172,9 +172,9 @@ func print_board(board [8][8]Piece, moves [][3]int, currentPiece Piece) {
 				} else {
 					// Normal Moves
 					if moveIndex > 9 {
-						print(color.InBlackOverBlue(moveIndex))
+						print(color.InCyanOverBlue(moveIndex))
 					} else {
-						print(color.InBlackOverBlue(moveIndex) + " ")
+						print(color.InCyanOverBlue(moveIndex) + " ")
 					}
 				}
 			} else if r == currentPiece.rank && f == currentPiece.file && currentPiece.pieceType != Empty {
@@ -182,14 +182,14 @@ func print_board(board [8][8]Piece, moves [][3]int, currentPiece Piece) {
 				if currentPiece.player == White {
 					print(color.InWhiteOverGreen(board[r][f].pieceType) + " ")
 				} else {
-					print(color.InBlackOverGreen(board[r][f].pieceType) + " ")
+					print(color.InCyanOverGreen(board[r][f].pieceType) + " ")
 				}
 			} else {
 				// Other Pieces
 				if board[r][f].player == White {
 					print(color.InWhite(board[r][f].pieceType) + " ")
 				} else {
-					print(color.InBlack(board[r][f].pieceType) + " ")
+					print(color.InCyan(board[r][f].pieceType) + " ")
 				}
 			}
 		}
@@ -983,4 +983,9 @@ func main() {
 		player = White
 	}
 	println("\n\n\n\n\n=== CONGRATS ON THE WIN: ", player.String(), "===")
+
+	// TODO : Fix weird issues with Get_valid_pieces() letting no valid pieces through
+	// TODO : Fix castle moves not being available when they should be
+	// TODO : Add ability to cancel piece selection
+	// TODO : Add ability to choose pieces and mvoes by space instead of the index
 }
